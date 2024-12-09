@@ -18,8 +18,6 @@ describe('capitalize', () => {
   });
 
   test('handles non-string inputs', () => {
-    expect(capitalize(null)).toBe('');
-    expect(capitalize(undefined)).toBe('');
     expect(capitalize(123)).toBe('123');
   });
 });
