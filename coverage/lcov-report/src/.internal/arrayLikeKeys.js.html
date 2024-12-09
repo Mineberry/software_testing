@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/.internal/unicodeToArray.js</title>
+    <title>Code coverage report for src/.internal/arrayLikeKeys.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/.internal</a> unicodeToArray.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/.internal</a> arrayLikeKeys.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.02% </span>
+                <span class="strong">41.86% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>40/43</span>
+                <span class='fraction'>18/43</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.02% </span>
+                <span class="strong">41.86% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>40/43</span>
+                <span class='fraction'>18/43</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -122,76 +122,76 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** Used to compose unicode character classes. */
-const rsAstralRange = '\\ud800-\\udfff'
-const rsComboMarksRange = '\\u0300-\\u036f'
-const reComboHalfMarksRange = '\\ufe20-\\ufe2f'
-const rsComboSymbolsRange = '\\u20d0-\\u20ff'
-const rsComboMarksExtendedRange = '\\u1ab0-\\u1aff'
-const rsComboMarksSupplementRange = '\\u1dc0-\\u1dff'
-const rsComboRange = rsComboMarksRange + reComboHalfMarksRange + rsComboSymbolsRange + rsComboMarksExtendedRange + rsComboMarksSupplementRange
-const rsVarRange = '\\ufe0e\\ufe0f'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import isArguments from '../isArguments.js'
+import isBuffer from '../isBuffer.js'
+import isIndex from './isIndex.js'
+import isTypedArray from '../isTypedArray.js'
 &nbsp;
-/** Used to compose unicode capture groups. */
-const rsAstral = `[${rsAstralRange}]`
-const rsCombo = `[${rsComboRange}]`
-const rsFitz = '\\ud83c[\\udffb-\\udfff]'
-const rsModifier = `(?:${rsCombo}|${rsFitz})`
-const rsNonAstral = `[^${rsAstralRange}]`
-const rsRegional = '(?:\\ud83c[\\udde6-\\uddff]){2}'
-const rsSurrPair = '[\\ud800-\\udbff][\\udc00-\\udfff]'
-const rsZWJ = '\\u200d'
-&nbsp;
-/** Used to compose unicode regexes. */
-const reOptMod = `${rsModifier}?`
-const rsOptVar = `[${rsVarRange}]?`
-const rsOptJoin = `(?:${rsZWJ}(?:${[rsNonAstral, rsRegional, rsSurrPair].join('|')})${rsOptVar + reOptMod})*`
-const rsSeq = rsOptVar + reOptMod + rsOptJoin
-const rsNonAstralCombo = `${rsNonAstral}${rsCombo}?`
-const rsSymbol = `(?:${[rsNonAstralCombo, rsCombo, rsRegional, rsSurrPair, rsAstral].join('|')})`
-&nbsp;
-/** Used to match [string symbols](https://mathiasbynens.be/notes/javascript-unicode). */
-const reUnicode = RegExp(`${rsFitz}(?=${rsFitz})|${rsSymbol + rsSeq}`, 'g')
+/** Used to check objects for own properties. */
+const hasOwnProperty = Object.prototype.hasOwnProperty
 &nbsp;
 /**
- * Converts a Unicode `string` to an array.
+ * Creates an array of the enumerable property names of the array-like `value`.
  *
  * @private
- * @param {string} string The string to convert.
- * @returns {Array} Returns the converted array.
+ * @param {*} value The value to query.
+ * @param {boolean} inherited Specify returning inherited property names.
+ * @returns {Array} Returns the array of property names.
  */
-<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function unicodeToArray(string) {</span></span>
-<span class="cstat-no" title="statement not covered" >  return string.match(reUnicode) || []</span>
+<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >function arrayLikeKeys(value, inherited) {</span></span>
+<span class="cstat-no" title="statement not covered" >  const isArr = Array.isArray(value)</span>
+<span class="cstat-no" title="statement not covered" >  const isArg = !isArr &amp;&amp; isArguments(value)</span>
+<span class="cstat-no" title="statement not covered" >  const isBuff = !isArr &amp;&amp; !isArg &amp;&amp; isBuffer(value)</span>
+<span class="cstat-no" title="statement not covered" >  const isType = !isArr &amp;&amp; !isArg &amp;&amp; !isBuff &amp;&amp; isTypedArray(value)</span>
+<span class="cstat-no" title="statement not covered" >  const skipIndexes = isArr || isArg || isBuff || isType</span>
+<span class="cstat-no" title="statement not covered" >  const length = value.length</span>
+<span class="cstat-no" title="statement not covered" >  const result = new Array(skipIndexes ? length : 0)</span>
+<span class="cstat-no" title="statement not covered" >  let index = skipIndexes ? -1 : length</span>
+<span class="cstat-no" title="statement not covered" >  while (++index &lt; length) {</span>
+<span class="cstat-no" title="statement not covered" >    result[index] = `${index}`</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" >  for (const key in value) {</span>
+<span class="cstat-no" title="statement not covered" >    if ((inherited || hasOwnProperty.call(value, key)) &amp;&amp;</span>
+<span class="cstat-no" title="statement not covered" >        !(skipIndexes &amp;&amp; (</span>
+<span class="cstat-no" title="statement not covered" >        // Safari 9 has enumerable `arguments.length` in strict mode.</span>
+<span class="cstat-no" title="statement not covered" >          (key === 'length' ||</span>
+<span class="cstat-no" title="statement not covered" >           // Skip index properties.</span>
+<span class="cstat-no" title="statement not covered" >           isIndex(key, length))</span>
+<span class="cstat-no" title="statement not covered" >        ))) {</span>
+<span class="cstat-no" title="statement not covered" >      result.push(key)</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
+<span class="cstat-no" title="statement not covered" >  return result</span>
 <span class="cstat-no" title="statement not covered" >}</span>
 &nbsp;
-export default unicodeToArray
+export default arrayLikeKeys
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

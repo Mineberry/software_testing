@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/toInteger.js</title>
+    <title>Code coverage report for src/isBuffer.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">src</a> toInteger.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">src</a> isBuffer.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -30,16 +30,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">9.09% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>1/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
@@ -125,49 +125,49 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import toFinite from './toFinite.js'
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import root from './.internal/root.js'
+&nbsp;
+/** Detect free variable `exports`. */
+const freeExports = typeof exports === 'object' <span class="branch-0 cbranch-no" title="branch not covered" >&amp;&amp; exports !== null <span class="branch-0 cbranch-no" title="branch not covered" ></span>&amp;&amp; !exports.nodeType <span class="branch-0 cbranch-no" title="branch not covered" ></span>&amp;&amp; exports</span>
+&nbsp;
+/** Detect free variable `module`. */
+const freeModule = freeExports <span class="branch-0 cbranch-no" title="branch not covered" >&amp;&amp; typeof module === 'object' <span class="branch-0 cbranch-no" title="branch not covered" ></span>&amp;&amp; module !== null <span class="branch-0 cbranch-no" title="branch not covered" ></span>&amp;&amp; !module.nodeType <span class="branch-0 cbranch-no" title="branch not covered" ></span>&amp;&amp; module</span>
+&nbsp;
+/** Detect the popular CommonJS extension `module.exports`. */
+const moduleExports = freeModule <span class="branch-0 cbranch-no" title="branch not covered" >&amp;&amp; freeModule.exports === freeExports</span>
+&nbsp;
+/** Built-in value references. */
+const Buffer = moduleExports <span class="branch-0 cbranch-no" title="branch not covered" >? root.Buffer </span>: undefined
+&nbsp;
+/* Built-in method references for those with the same name as other `lodash` methods. */
+const nativeIsBuffer = Buffer <span class="branch-0 cbranch-no" title="branch not covered" >? Buffer.isBuffer </span>: undefined
 &nbsp;
 /**
- * Converts `value` to an integer.
+ * Checks if `value` is a buffer.
  *
- * **Note:** This method is loosely based on
- * [`ToInteger`](http://www.ecma-international.org/ecma-262/7.0/#sec-tointeger).
- *
- * @since 4.0.0
+ * @since 4.3.0
  * @category Lang
- * @param {*} value The value to convert.
- * @returns {number} Returns the converted integer.
- * @see isInteger, isNumber, toNumber
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a buffer, else `false`.
  * @example
  *
- * toInteger(3.2)
- * // =&gt; 3
+ * isBuffer(new Buffer(2))
+ * // =&gt; true
  *
- * toInteger(Number.MIN_VALUE)
- * // =&gt; 0
- *
- * toInteger(Infinity)
- * // =&gt; 1.7976931348623157e+308
- *
- * toInteger('3.2')
- * // =&gt; 3
+ * isBuffer(new Uint8Array(2))
+ * // =&gt; false
  */
-function toInteger(value) {
-  const result = toFinite(value)
-  const remainder = result % 1
+const isBuffer = nativeIsBuffer || (<span class="fstat-no" title="function not covered" >() =&gt; false)</span>
 &nbsp;
-  return remainder ? result - remainder : result
-}
-&nbsp;
-export default toInteger
+export default isBuffer
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

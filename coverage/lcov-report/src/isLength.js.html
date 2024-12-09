@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/toInteger.js</title>
+    <title>Code coverage report for src/isLength.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">src</a> toInteger.js</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">src</a> isLength.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>35/35</span>
+                <span class='fraction'>33/33</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">40% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>2/5</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>35/35</span>
+                <span class='fraction'>33/33</span>
             </div>
         
             
@@ -96,9 +96,7 @@
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -125,49 +123,45 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import toFinite from './toFinite.js'
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/** Used as references for various `Number` constants. */
+const MAX_SAFE_INTEGER = 9007199254740991
 &nbsp;
 /**
- * Converts `value` to an integer.
+ * Checks if `value` is a valid array-like length.
  *
  * **Note:** This method is loosely based on
- * [`ToInteger`](http://www.ecma-international.org/ecma-262/7.0/#sec-tointeger).
+ * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
  *
  * @since 4.0.0
  * @category Lang
- * @param {*} value The value to convert.
- * @returns {number} Returns the converted integer.
- * @see isInteger, isNumber, toNumber
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
  * @example
  *
- * toInteger(3.2)
- * // =&gt; 3
+ * isLength(3)
+ * // =&gt; true
  *
- * toInteger(Number.MIN_VALUE)
- * // =&gt; 0
+ * isLength(Number.MIN_VALUE)
+ * // =&gt; false
  *
- * toInteger(Infinity)
- * // =&gt; 1.7976931348623157e+308
+ * isLength(Infinity)
+ * // =&gt; false
  *
- * toInteger('3.2')
- * // =&gt; 3
+ * isLength('3')
+ * // =&gt; false
  */
-function toInteger(value) {
-  const result = toFinite(value)
-  const remainder = result % 1
-&nbsp;
-  return remainder ? result - remainder : result
+function isLength(value) {
+  return typeof value === 'number' <span class="branch-0 cbranch-no" title="branch not covered" >&amp;&amp;</span>
+    value &gt; -1 <span class="branch-0 cbranch-no" title="branch not covered" >&amp;&amp; value % 1 == 0 <span class="branch-0 cbranch-no" title="branch not covered" ></span>&amp;&amp; value &lt;= MAX_SAFE_INTEGER</span>
 }
 &nbsp;
-export default toInteger
+export default isLength
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
