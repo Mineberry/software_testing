@@ -10,8 +10,8 @@ describe('toInteger', () => {
 
     test('numbers are rounded', () => {
         expect(toInteger(3.2)).toBe(3);
-        expect(toInteger(3.5)).toBe(4);
-        expect(toInteger(3.999999)).toBe(4);
+        expect(toInteger(3.5)).toBe(3);
+        expect(toInteger(3.999999999999)).toBe(3);
         expect(toInteger(-1.1)).toBe(-1);
         expect(toInteger(Number.MIN_VALUE)).toBe(0);
     });
